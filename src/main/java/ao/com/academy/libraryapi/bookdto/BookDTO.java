@@ -20,7 +20,7 @@ public class BookDTO {
     
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(name="bookId")
     private Long bookId;
 
     @Column(name="bookName")
