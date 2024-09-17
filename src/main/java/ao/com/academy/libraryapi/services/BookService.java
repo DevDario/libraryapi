@@ -3,11 +3,13 @@ package ao.com.academy.libraryapi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ao.com.academy.libraryapi.bookdto.BookDTO;
 import ao.com.academy.libraryapi.exceptions.BookNotFoundException;
 import ao.com.academy.libraryapi.repositories.BookRepository;
 
+@Service
 public class BookService {
     
 
