@@ -14,7 +14,7 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
-    public List<BookDTO> getBooks() throws BookNotFoundException{
+    public List<BookDTO> getBooks(){
         return bookRepository.findAll();
     }
 
