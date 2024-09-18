@@ -20,14 +20,14 @@ import lombok.Setter;
 public class Book {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="bookId")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id")
     private Long bookId;
 
-    @Column(name="bookName")
+    @Column(name="name")
     private String bookName;
 
-    @Column(name="bookAuthor")
+    @Column(name="author")
     private String bookAuthor;
 
     @Column(name="releaseDate")
