@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,14 @@ public class LibraryController {
     @PostMapping("/library/books/new")
     public ResponseEntity<?> createBook(@RequestBody Book book){
         return bookService.createBook(book);
+    }
+
+    // Delete a Book by Id
+    @DeleteMapping("/library/books/delete/{id}")
+    public ResponseEntity<?> deleteBook(@PathVariable(name="id") Long bookId) throws BookNotFoundException{
+        bookService.deleteBook(bookId);
+
+        return ResponseEntity.ok().build();
     }
 
 }
