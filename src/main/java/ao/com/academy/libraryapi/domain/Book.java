@@ -22,13 +22,13 @@ public class Book {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private Long bookId;
+    private Long id;
 
     @Column(name="name")
-    private String bookName;
+    private String name;
 
     @Column(name="author")
-    private String bookAuthor;
+    private String author;
 
     @Column(name="releaseDate")
     private String releaseDate;
