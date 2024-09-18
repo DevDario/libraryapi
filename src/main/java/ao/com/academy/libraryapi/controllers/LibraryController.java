@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ao.com.academy.libraryapi.bookdto.BookDTO;
+import ao.com.academy.libraryapi.domain.Book;
 import ao.com.academy.libraryapi.exceptions.BookNotFoundException;
 import ao.com.academy.libraryapi.services.BookService;
 
@@ -25,19 +25,19 @@ public class LibraryController {
 
     // Get all books
     @GetMapping("/library/books")
-    public List<BookDTO> getAllBooks(){
+    public List<Book> getAllBooks(){
         return bookService.getBooks();
     }
 
     // Find book by Id
     @GetMapping("/library/books/{id}")
-    public BookDTO getBookById(@PathVariable(name="id") Long bookId) throws BookNotFoundException{
+    public Book getBookById(@PathVariable(name="id") Long bookId) throws BookNotFoundException{
         return bookService.getBookById(bookId);
     }
 
     // Create Book
     @PostMapping("/library/books/new")
-    public ResponseEntity<?> createBook(@RequestBody BookDTO book){
+    public ResponseEntity<?> createBook(@RequestBody Book book){
         return bookService.createBook(book);
     }
 

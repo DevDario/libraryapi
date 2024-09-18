@@ -1,4 +1,4 @@
-package ao.com.academy.libraryapi.bookdto;
+package ao.com.academy.libraryapi.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class BookDTO {
+public class Book {
     
     @Id
     @GeneratedValue

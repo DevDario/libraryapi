@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import ao.com.academy.libraryapi.bookdto.BookDTO;
+import ao.com.academy.libraryapi.domain.Book;
 import ao.com.academy.libraryapi.exceptions.BookNotFoundException;
 import ao.com.academy.libraryapi.repositories.BookRepository;
 
@@ -17,15 +17,15 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
-    public List<BookDTO> getBooks(){
+    public List<Book> getBooks(){
         return bookRepository.findAll();
     }
 
-    public BookDTO getBookById(Long bookId) throws BookNotFoundException{
+    public Book getBookById(Long bookId) throws BookNotFoundException{
         return bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException(bookId));
     }
 
-    public ResponseEntity<?> createBook(BookDTO book){
+    public ResponseEntity<?> createBook(Book book){
         bookRepository.save(book);
 
         return ResponseEntity.ok().build();
