@@ -46,9 +46,7 @@ public class LibraryController {
     // Delete a Book by Id
     @DeleteMapping("/library/books/delete/{id}")
     public ResponseEntity<?> deleteBook(@PathVariable(name="id") Long bookId) throws BookNotFoundException{
-        bookService.deleteBook(bookId);
-
-        return ResponseEntity.ok().build();
+        return bookService.deleteBook(bookId);
     }
 
     // Update a Book
