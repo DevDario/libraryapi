@@ -43,4 +43,17 @@ public class BookService {
 
         return ResponseEntity.ok().build();
     }
+
+    // Update a book
+    public Book updateBook(Long bookId, Book bookDetails) throws BookNotFoundException{
+        Book book = bookRepository.findById(bookId).orElseThrow(() -> new BookNotFoundException(bookId));
+
+        book.setName(bookDetails.getName());
+        book.setAuthor(bookDetails.getAuthor());
+        book.setReleaseDate(bookDetails.getReleaseDate());
+
+        Book updatedBook = bookRepository.save(book);
+
+        return updatedBook;
+    }
 }
